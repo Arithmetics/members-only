@@ -1,0 +1,12 @@
+<%= link_to "login", login_path %>
+
+<p> here is cookie token: <%= cookies.permanent[:remember_token] %> </p>
+<p> here is cookie digest: <%= Digest::SHA1.hexdigest(cookies.permanent[:remember_token]) %> </p>
+
+<% if current_user %>
+  <p> Current user name: <%= current_user.name %> </p>
+  <p> Current user remember_digest: <%= current_user.remember_digest %> </p>
+  <%= link_to "log out", logout_path, method: "delete" %>
+<% else %>
+  <p> No logged in user </p>
+<% end %>

@@ -1,0 +1,12 @@
+
+
+<% @posts.each do |post| %>
+<ul>
+  <br>
+  <li> <%= post.title %> </li>
+  <li> <%= post.content %></li>
+  <% if current_user %>
+    <li> author name: <%= post.author %>
+  <% end %>
+  </ul>
+<% end %>

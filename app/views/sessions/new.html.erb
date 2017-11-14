@@ -1,0 +1,15 @@
+
+<%= form_for(:session, url: login_path) do |f| %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.submit "Log in" %>
+<% end %>
+
+<% if @token %>
+  <p> We saved a new user digest and store this token in the cookie: <%= @token %> </p>
+<% end %>
+
+
+<p> here is cookie digest: <%= cookies.permanent[:remember_token] %> </p>
